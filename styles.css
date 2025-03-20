@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0f1e;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+h1 {
+    color: #005f8a;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #a9c3dd;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.register-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #00adef;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.register-button:hover {
+    background-color: #008bb8;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #5F9EA0;
+    padding: 20px 30px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #a9c3dd;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #00adef;
+    background-color: #102040;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00adef;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #008bb8;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .form-group input,
+    button {
+        font-size: 14px;
+    }
+}
