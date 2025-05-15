@@ -30,7 +30,8 @@ body {
 .schedule-link,
 .about-link,
 .mmr-link,
-.getinvolved-link {
+.getinvolved-link,
+.return-link {
     color: #ffffff;
     font-size: 25px;
     font-weight: bold;
@@ -41,7 +42,8 @@ body {
 .schedule-link:hover,
 .about-link:hover,
 .mmr-link:hover,
-.getinvolved-link:hover {
+.getinvolved-link:hover,
+.return-link:hover {
     color: #00adef;
 }
 
