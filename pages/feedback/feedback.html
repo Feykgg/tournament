@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Обратная связь</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header class="site-header">
+        <a href="../../index.html">
+        <img src="../../images/logo.png" alt="Логотип" class="logo">
+		</a>
+		<a href="../schedule/schedule.html" class="schedule-link">Расписание</a>
+		<span class="separator">|</span>
+		<a href="../rating/rating.html" class="mmr-link">Рейтинг команд</a>
+		<span class="separator">|</span>
+        <a href="../about-us/about-us.html" class="about-link">О нас</a>
+		<span class="separator">|</span>
+        <a href="feedback.html" class="return-link">Обратная связь</a>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+    <h2 class="mb-4">Форма обратной связи</h2>
+    <form id="feedbackForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Имя</label>
+        <input type="text" class="form-control" id="name" required />
+        <div id="nameError" class="error-message"></div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required />
+        <div id="emailError" class="error-message"></div>
+      </div>
+      <div class="mb-3">
+        <label for="comment" class="form-label">Комментарий</label>
+        <textarea class="form-control" id="comment" rows="3" required></textarea>
+        <div id="commentError" class="error-message"></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+  </div>
+
+  <div class="toast-container">
+    <div id="toast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toast-body">
+          Спасибо за сообщение!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const toastEl = document.getElementById('toast');
+    const toastBody = document.getElementById('toast-body');
+    const toast = new bootstrap.Toast(toastEl);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const comment = document.getElementById('comment').value.trim();
+
+      let isValid = true;
+
+      if (!name) {
+        document.getElementById('nameError').textContent = 'Пожалуйста, введите ваше имя';
+        isValid = false;
+      }
+
+      if (!email) {
+        document.getElementById('emailError').textContent = 'Пожалуйста, введите email';
+        isValid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('emailError').textContent = 'Пожалуйста, введите корректный email';
+        isValid = false;
+      }
+
+      if (!comment) {
+        document.getElementById('commentError').textContent = 'Пожалуйста, введите комментарий';
+        isValid = false;
+      }
+
+      if (isValid) {
+        toastBody.textContent = `Спасибо за сообщение, ${name}!`;
+        toast.show();
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
